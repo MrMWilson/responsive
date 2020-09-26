@@ -1,3 +1,3 @@
-fuction BeepBoop() {
-    console.log("beep boop");
+function BeepBoop() {
+    console.log('beep boop');
 }
