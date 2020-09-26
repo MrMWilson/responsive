@@ -1,65 +1,92 @@
 function BeepBoop() {
-    console.log('beep boop');
+  console.log('beep boop');
 }
 
 function GenerateCards(num) {
 
-    //debugger;
+  const cardDeck = document.getElementById('card-location');
 
-    for (let i = 0; i < num; i++) {
-        const cardBorder = document.createElement('div');
-        cardBorder.classList.add('card', 'mb-3', 'col-lg-4', 'p-3');
+  for (let i = 0; i < num; i++) {
+    const cardBorder = CreateCard();
+    cardDeck.appendChild(cardBorder);
+  }
 
-        const cardHeader = document.createElement('div');
-        cardHeader.classList.add('card-header', 'bg-transparent');
-        cardBorder.appendChild(cardHeader);
+  console.log(GetColourPalette());
 
-        const cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
-        cardBorder.appendChild(cardBody);
+}
 
-        const cardTitle = document.createElement('h5');
-        cardTitle.classList.add('card-title');
-        cardBody.appendChild(cardTitle);
+function CreateCard() {
 
-        const cardText = document.createElement('p');
-        cardText.classList.add('card-text');
-        cardBody.appendChild(cardText);
+  const colourWheel = GetColourPalette();
 
-        const cardFooter = document.createElement('div');
-        cardFooter.classList.add('card-footer', 'bg-transparent');
-        cardBorder.appendChild(cardFooter);
+  const cardBorder = document.createElement('div');
+  cardBorder.classList.add('card', 'mb-3', 'col-lg-4', 'p-3', 'bg-transparent');
+  cardBorder.style.borderColor = GetColour(colourWheel.length, colourWheel);
 
-        const cardDeck = document.getElementById('card-location');
-        cardDeck.appendChild(cardBorder);
-    }
+  const cardHeader = document.createElement('div');
+  cardHeader.classList.add('card-header', 'bg-transparent');
+  cardHeader.style.borderColor = GetColour(colourWheel.length, colourWheel);
+  cardBorder.appendChild(cardHeader);
 
-    /*
+  const cardBody = document.createElement('div');
+  cardBody.classList.add('card-body', 'bg-transparent');
+  cardBorder.appendChild(cardBody);
 
-<div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header bg-transparent border-success">Header</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">Success card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <div class="card-footer bg-transparent border-success">Footer</div>
-</div>
+  const cardTitle = document.createElement('h5');
+  cardTitle.classList.add('card-title');
+  cardTitle.style.borderColor = GetColour(colourWheel.length, colourWheel);
+  cardBody.appendChild(cardTitle);
 
-*/
+  const cardText = document.createElement('p');
+  cardText.classList.add('card-text');
+  cardText.style.borderColor = GetColour(colourWheel.length, colourWheel);
+  cardBody.appendChild(cardText);
 
+  const cardFooter = document.createElement('div');
+  cardFooter.classList.add('card-footer', 'bg-transparent');
+  cardFooter.style.borderColor = GetColour(colourWheel.length, colourWheel);
+  cardBorder.appendChild(cardFooter);
 
-
-
+  return cardBorder;
 }
 
 function ColourGenerator() {
 
 }
 
-function GetColourPalette() {
+function GetColourPalette(num) {
 
+  const neonHex = [];
+  const styles = GetStyleDocuments();
+
+  for (let i = 0; i < styles.length; i++) {
+    const style = styles[i];
+    const hex = getComputedStyle(document.documentElement).getPropertyValue(style);
+    neonHex.push(hex);
+  }
+
+  return neonHex;
 }
 
-function GetRandomNumber(lower, upper) {
+function GetStyleDocuments() {
+  const returnList = []
+  const styleList = getComputedStyle(document.documentElement);
+  for (let i = 0; i < styleList.length; i++) {
+    const style = styleList[i];
+    if (style.startsWith('--neon-')) {
+      returnList.push(style);
+    }
+  }
+  return returnList;
+}
 
+function GetColour(num, colourWheel) {
+
+  const random = GenerateRandomNumber(num);
+  return colourWheel[random];
+}
+
+function GenerateRandomNumber(upperRange) {
+  var randomNumber = Math.floor(Math.random() * (parseInt(upperRange) - parseInt(0)) + parseInt(0));
+  return randomNumber;
 }
