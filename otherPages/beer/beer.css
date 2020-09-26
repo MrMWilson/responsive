@@ -1,5 +1,6 @@
-.white {
+.title-white {
     color: white;
+    text-align: center;
 }
 
 .card-header {

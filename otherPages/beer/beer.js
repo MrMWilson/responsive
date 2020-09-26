@@ -19,7 +19,9 @@ function CreateCard(beerObject) {
     console.log(beerObject.abv);
 
     const cardContainer = document.createElement('div');
-    cardContainer.classList.add('card-container', 'col-lg-4', 'mb-3', 'p-3', 'bg-transparent');
+    cardContainer.classList.add('card-container',
+        'col-lg-4', 'col-md-6', 'col-sm-12',
+        'mb-3', 'p-3', 'bg-transparent');
 
     const cardBorder = document.createElement('div');
     cardBorder.classList.add('card', 'bg-transparent', 'h-100');
