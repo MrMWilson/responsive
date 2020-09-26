@@ -2,12 +2,12 @@ function BeepBoop() {
     console.log('beep boop');
 }
 
-function GenerateCards(num) {
+async function GenerateCards(num) {
 
     const cardDeck = document.getElementById('card-location');
-
+    var beerInfo = await GetRandomBeer();
     for (let i = 0; i < num; i++) {
-        const cardBorder = CreateCard();
+        const cardBorder = CreateCard(beerInfo[i]);
         cardDeck.appendChild(cardBorder);
     }
 
@@ -15,17 +15,21 @@ function GenerateCards(num) {
 
 }
 
-function CreateCard() {
+function CreateCard(beerObject) {
 
     const colourWheel = GetColourPalette();
     const colour = GetColour(colourWheel.length, colourWheel);
+    console.log(beerObject);
 
     const cardBorder = document.createElement('div');
     cardBorder.classList.add('card', 'mb-3', 'col-lg-4', 'p-3', 'bg-transparent');
     cardBorder.style.borderColor = colour;
+
     const cardHeader = document.createElement('div');
     cardHeader.classList.add('card-header', 'bg-transparent');
     cardHeader.style.borderColor = colour;
+    cardHeader.innerText = beerObject.name;
+    cardHeader.style.color = colour;
     cardBorder.appendChild(cardHeader);
 
     const cardBody = document.createElement('div');
@@ -40,6 +44,8 @@ function CreateCard() {
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
     cardText.style.borderColor = colour;
+    cardText.innerText = beerObject.description;
+    cardText.style.color = colour;
     cardBody.appendChild(cardText);
 
     const cardFooter = document.createElement('div');
@@ -47,10 +53,6 @@ function CreateCard() {
     cardFooter.style.borderColor = colour;
 
     return cardBorder;
-}
-
-function ColourGenerator() {
-
 }
 
 function GetColourPalette(num) {
@@ -88,4 +90,21 @@ function GetColour(num, colourWheel) {
 function GenerateRandomNumber(upperRange) {
     var randomNumber = Math.floor(Math.random() * (parseInt(upperRange) - parseInt(0)) + parseInt(0));
     return randomNumber;
+}
+
+function GetRandomBeer() {
+
+    var randomBeer = fetch('https://api.punkapi.com/v2/beers?brewed_before=11-2012&abv_gt=6', {
+            method: 'GET'
+        })
+        .then(
+            response => response.json()
+        )
+        .then(
+            data => {
+                return data;
+            }
+        );
+
+    return randomBeer;
 }
