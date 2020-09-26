@@ -1,3 +1,15 @@
+:root {
+    --neon-green: #7FFF00;
+    --neon-pink: #FF1493;
+    --neon-purple: #8A2BE2;
+    --neon-cyan: #7DF9FF;
+    --neon-blue: #0B36C3;
+    --neon-red: #FF3A40;
+    --neon-orange: #FF6731;
+    --neon-yellow: #FCF133;
+}
+
+
 body {
-    background-color: brown;
+    background-color: whitesmoke;
 }
