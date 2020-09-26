@@ -1,28 +1,40 @@
 function BeepBoop() {
-  console.log('beep boop');
+    console.log('beep boop');
 }
 
 function GenerateCards(num) {
 
-  //debugger;
+    //debugger;
 
-  for (let i = 0; i < num; i++) {
-    const cardBorder = document.createElement('div');
-    cardBorder.classList.add('card', 'mb-3', 'col-lg-4', 'p-3');
+    for (let i = 0; i < num; i++) {
+        const cardBorder = document.createElement('div');
+        cardBorder.classList.add('card', 'mb-3', 'col-lg-4', 'p-3');
 
-    const cardHeader = document.createElement('div');
-    cardHeader.classList.add('card-header', 'bg-transparent');
-    cardBorder.appendChild(cardHeader);
+        const cardHeader = document.createElement('div');
+        cardHeader.classList.add('card-header', 'bg-transparent');
+        cardBorder.appendChild(cardHeader);
 
-    const cardBody = document.createElement('div');
-    cardBody.classList.add('card-body');
-    cardBorder.appendChild(cardBody);
+        const cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+        cardBorder.appendChild(cardBody);
 
-    const cardDeck = document.getElementById('card-location');
-    cardDeck.appendChild(cardBorder);
-  }
+        const cardTitle = document.createElement('h5');
+        cardTitle.classList.add('card-title');
+        cardBody.appendChild(cardTitle);
 
-  /*
+        const cardText = document.createElement('p');
+        cardText.classList.add('card-text');
+        cardBody.appendChild(cardText);
+
+        const cardFooter = document.createElement('div');
+        cardFooter.classList.add('card-footer', 'bg-transparent');
+        cardBorder.appendChild(cardFooter);
+
+        const cardDeck = document.getElementById('card-location');
+        cardDeck.appendChild(cardBorder);
+    }
+
+    /*
 
 <div class="card border-success mb-3" style="max-width: 18rem;">
   <div class="card-header bg-transparent border-success">Header</div>
