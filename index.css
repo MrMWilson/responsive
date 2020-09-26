@@ -8,3 +8,11 @@
     --neon-orange: #FF6731;
     --neon-yellow: #FCF133;
 }
+
+.card-header {
+    text-align: center;
+}
+
+.card-footer {
+    text-align: right;
+}

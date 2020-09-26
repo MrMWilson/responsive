@@ -20,6 +20,7 @@ function CreateCard(beerObject) {
   const colourWheel = GetColourPalette();
   const colour = GetColour(colourWheel.length, colourWheel);
   console.log(beerObject);
+  console.log(beerObject.abv);
 
   const cardContainer = document.createElement('div');
   cardContainer.classList.add('card-container', 'col-lg-4', 'mb-3', 'p-3', 'bg-transparent');
@@ -27,6 +28,7 @@ function CreateCard(beerObject) {
   const cardBorder = document.createElement('div');
   cardBorder.classList.add('card', 'bg-transparent', 'h-100');
   cardBorder.style.borderColor = colour;
+  cardBorder.style.borderWidth = '2px';
   cardContainer.appendChild(cardBorder);
 
   const cardHeader = document.createElement('div');
@@ -34,6 +36,7 @@ function CreateCard(beerObject) {
   cardHeader.style.borderColor = colour;
   cardHeader.innerText = beerObject.name;
   cardHeader.style.color = colour;
+  cardHeader.style.borderBottomWidth = '2px';
   cardBorder.appendChild(cardHeader);
 
   const cardBody = document.createElement('div');
@@ -43,6 +46,8 @@ function CreateCard(beerObject) {
   const cardTitle = document.createElement('h5');
   cardTitle.classList.add('card-title');
   cardTitle.style.borderColor = colour;
+  cardTitle.innerText = beerObject.tagline;
+  cardTitle.style.color = colour;
   cardBody.appendChild(cardTitle);
 
   const cardText = document.createElement('p');
@@ -55,6 +60,9 @@ function CreateCard(beerObject) {
   const cardFooter = document.createElement('div');
   cardFooter.classList.add('card-footer', 'bg-transparent');
   cardFooter.style.borderColor = colour;
+  cardFooter.innerText = 'ABV: ' + beerObject.abv;
+  cardFooter.style.color = colour;
+  cardBorder.appendChild(cardFooter);
 
   return cardContainer;
 }
