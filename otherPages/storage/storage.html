@@ -29,7 +29,31 @@
         </div>
     </nav>
 
-    <h1 class="title-white">Response Page</h1>
+    <h1 class="title-white">Storage Page</h1>
+
+    <div class="container">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">First Name</span>
+            </div>
+            <input type="text" id="first-name-text" class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Surname</span>
+            </div>
+            <input type="text" id="surname-text" class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button type="button" class="btn btn-outline-dark" onclick="HandleOnClick()">Submit</button>
+    </div>
+
+    <div class="container text-location">
+        <h6>Welcome</h6>
+        <h1 id="first-name-location"></h1>
+        <h1 id="surname-location"></h1>
+    </div>
 
     <script src=" https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
