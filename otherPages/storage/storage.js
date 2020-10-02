@@ -9,6 +9,8 @@ function UpdateTextLocation() {
     SetFirstName(firstNameText.value);
 
     SetSurname(surnameText.value);
+
+    StoreInLocalStorage(firstNameText.value, surnameText.value);
 }
 
 function SetFirstName(firstname) {
@@ -20,4 +22,9 @@ function SetSurname(surname) {
     const surnameLocation = document.getElementById("surname-location");
     surnameLocation.innerText = surname;
 
+}
+
+function StoreInLocalStorage(firstname, surname) {
+    localStorage.setItem("firstname", firstname);
+    localStorage.setItem("surname", surname);
 }
