@@ -28,3 +28,12 @@ function StoreInLocalStorage(firstname, surname) {
     localStorage.setItem("firstname", firstname);
     localStorage.setItem("surname", surname);
 }
+
+function GetLocalStorage() {
+    const firstname = localStorage.getItem("firstname");
+    const surname = localStorage.getItem("surname");
+
+    SetFirstName(firstname);
+    SetSurname(surname);
+
+}
