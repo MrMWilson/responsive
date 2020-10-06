@@ -43,7 +43,7 @@
     /* Set a specific slider handle width */
     height: 25px;
     /* Slider handle height */
-    background: #4CAF50;
+    background: inherit;
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */
@@ -54,7 +54,7 @@
     /* Set a specific slider handle width */
     height: 25px;
     /* Slider handle height */
-    background: #4CAF50;
+    background: inherit;
     /* Green background */
     cursor: pointer;
     /* Cursor on hover */
