@@ -50,9 +50,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="slidecontainer">
-                            <input type="range" min="0" max="255" value="0" class="slider" id="redSlider">
-                            <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider">
-                            <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider">
+                            <input type="range" min="0" max="255" value="0" class="slider" id="redSlider"
+                                oninput="ChangeSliderColour()">
+                            <input type="range" min="0" max="255" value="0" class="slider" id="greenSlider"
+                                oninput="ChangeSliderColour()">
+                            <input type="range" min="0" max="255" value="0" class="slider" id="blueSlider"
+                                oninput="ChangeSliderColour()">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -64,21 +67,6 @@
         </div>
 
     </div>
-
-    <script>
-        function changeColour() {
-            let red = document.getElementById('redSlider').value;
-            let green = document.getElementById('greenSlider').value;
-            let blue = document.getElementById('blueSlider').value;
-            let colour = 'rgb(' + red + ',' + green + ',' + blue + ')';
-
-            document.body.style.backgroundColor = colour;
-        }
-
-        document.getElementById('redSlider').addEventListener('input', changeColour);
-        document.getElementById('greenSlider').addEventListener('input', changeColour);
-        document.getElementById('blueSlider').addEventListener('input', changeColour);
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
