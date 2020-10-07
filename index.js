@@ -26,22 +26,21 @@ function UpdateSliderInfo() {
 }
 
 function HandleOnClick() {
-    ChangeBackground();
-}
-
-
-function ChangeBackground() {
-
     const red = document.getElementById('redSlider');
     const green = document.getElementById('greenSlider');
     const blue = document.getElementById('blueSlider');
 
+    StoreInLocalStorage(red.value, green.value, blue.value);
+
+    ChangeBackground(red, green, blue);
+}
+
+
+function ChangeBackground(red, green, blue) {
+
     var body = document.getElementById('background');
 
     body.style.background = "rgb(" + red.value + "," + green.value + "," + blue.value + ")";
-
-    StoreInLocalStorage(red.value, green.value, blue.value)
-
 }
 
 function StoreInLocalStorage(red, green, blue) {
@@ -57,9 +56,7 @@ function GetLocalStorage() {
     const green = localStorage.getItem("green");
     const blue = localStorage.getItem("blue");
 
-    var body = document.getElementById('background');
-
-    body.style.background = "rgb(" + red.value + "," + green.value + "," + blue.value + ")";
+    ChangeBackground(red, green, blue);
 
 
 }
