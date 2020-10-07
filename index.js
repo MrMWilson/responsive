@@ -24,3 +24,42 @@ function UpdateSliderInfo() {
     greenValue.textContent = document.getElementById('greenSlider').value + "/255";
     blueValue.textContent = document.getElementById('blueSlider').value + "/255";
 }
+
+function HandleOnClick() {
+    ChangeBackground();
+}
+
+
+function ChangeBackground() {
+
+    const red = document.getElementById('redSlider');
+    const green = document.getElementById('greenSlider');
+    const blue = document.getElementById('blueSlider');
+
+    var body = document.getElementById('background');
+
+    body.style.background = "rgb(" + red.value + "," + green.value + "," + blue.value + ")";
+
+    StoreInLocalStorage(red.value, green.value, blue.value)
+
+}
+
+function StoreInLocalStorage(red, green, blue) {
+
+    localStorage.setItem("red", red);
+    localStorage.setItem("green", green);
+    localStorage.setItem("blue", blue);
+
+}
+
+function GetLocalStorage() {
+    const red = localStorage.getItem("red");
+    const green = localStorage.getItem("green");
+    const blue = localStorage.getItem("blue");
+
+    var body = document.getElementById('background');
+
+    body.style.background = "rgb(" + red.value + "," + green.value + "," + blue.value + ")";
+
+
+}

@@ -11,7 +11,7 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
-<body style="background-color: black;">
+<body class="body" id="background" onload="GetLocalStorage()">
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -64,7 +64,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning">Save changes</button>
+                        <button type="button" class="btn btn-warning" id="save-button" onclick="HandleOnClick()">Save
+                            changes</button>
                     </div>
                 </div>
             </div>
