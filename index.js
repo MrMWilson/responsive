@@ -9,6 +9,10 @@ function ChangeSliderColour() {
 
     UpdateSliderInfo();
 
+    var mixedValue = document.getElementById('mixedColour');
+
+    mixedValue.style.background = "rgb(" + red.value + "," + green.value + "," + blue.value + ")";
+
 }
 
 function UpdateSliderInfo() {
