@@ -32,7 +32,7 @@ function HandleOnClick() {
 
     StoreInLocalStorage(red.value, green.value, blue.value);
 
-    ChangeBackground(red, green, blue);
+    ChangeBackground(red.value, green.value, blue.value);
 }
 
 
@@ -40,7 +40,7 @@ function ChangeBackground(red, green, blue) {
 
     var body = document.getElementById('background');
 
-    body.style.background = "rgb(" + red.value + "," + green.value + "," + blue.value + ")";
+    body.style.background = "rgb(" + red + "," + green + "," + blue + ")";
 }
 
 function StoreInLocalStorage(red, green, blue) {
@@ -52,11 +52,11 @@ function StoreInLocalStorage(red, green, blue) {
 }
 
 function GetLocalStorage() {
+
     const red = localStorage.getItem("red");
     const green = localStorage.getItem("green");
     const blue = localStorage.getItem("blue");
 
     ChangeBackground(red, green, blue);
-
 
 }
