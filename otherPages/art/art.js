@@ -46,13 +46,11 @@ function RenderImages(imageData) {
 
 function RemoveOldImages() {
     const oldIMGs = document.getElementsByClassName("picture-box-container");
+    const length = oldIMGs.length;
 
-    debugger;
-
-    for (let i = 0; i < oldIMGs.length; i++) {
-        const element = oldIMGs[i];
-
-        element.remove();
+    for (let i = 0; i < length; i++) {
+        const img = oldIMGs[0];
+        img.remove();
     }
 
 }
