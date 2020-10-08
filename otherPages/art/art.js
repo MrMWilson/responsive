@@ -13,7 +13,46 @@ async function GetImages(searchValue) {
 
 async function HandleSearchImges() {
 
-    const data = await GetImages("yellow-flowers");
+    const searchValue = document.getElementById("search-value");
 
-    console.log(data);
+    const data = await GetImages(searchValue.value);
+
+    RemoveOldImages();
+
+    RenderImages(data.hits);
+}
+
+function RenderImages(imageData) {
+    const location = document.getElementById('images-location');
+
+    for (let i = 0; i < imageData.length; i++) {
+        const image = imageData[i];
+
+        const element = document.createElement("img");
+        element.src = image.largeImageURL;
+        element.classList.add("picture-box");
+        element.classList.add("h-100");
+
+        const div = document.createElement("div");
+        div.classList.add("col-6");
+        div.classList.add("picture-box-container");
+
+
+        div.appendChild(element);
+
+        location.appendChild(div);
+    }
+}
+
+function RemoveOldImages() {
+    const oldIMGs = document.getElementsByClassName("picture-box-container");
+
+    debugger;
+
+    for (let i = 0; i < oldIMGs.length; i++) {
+        const element = oldIMGs[i];
+
+        element.remove();
+    }
+
 }
