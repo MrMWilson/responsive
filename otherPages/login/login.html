@@ -45,17 +45,17 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Username</span>
         </div>
-        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" id="register-username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
       </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">e-mail</span>
         </div>
-        <input type="text" class="form-control" placeholder="example@login.com" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" id= "register-email" placeholder="example@login.com" aria-label="Username" aria-describedby="basic-addon1">
       </div>
     </div>
-    <button type="button" class="btn btn-outline-warning">Register</button>
+    <button type="button" class="btn btn-outline-warning" onclick= "HandleRegister()" >Register</button>
 </div>
 
 <div class="container" id= "login-container">
@@ -77,10 +77,14 @@
 </div>
 <button type="button" class="btn btn-outline-success">Login</button>
 </div>
+</div>
+</div>
+
+<div class="container" id= "feedback-container">   
+
+
 
 </div>
-    
-    </div>
 
 
     

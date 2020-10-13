@@ -1,5 +1,6 @@
 function HandleOnClick() {
     UpdateTextLocation();
+    debugger;
 }
 
 function UpdateTextLocation() {
