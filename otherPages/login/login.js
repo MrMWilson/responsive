@@ -14,3 +14,36 @@ function SetInLocalStorage(username,email){
     localStorage.setItem("username",username);
     localStorage.setItem("email",email);
 }
+
+function HandleLogin(){
+  UpdateLogignInfo();  
+}
+
+function UpdateLoginInfo(){
+const usernameLogin = document.getElementById("login-username");
+const emailLogin = document.getElementById("login-email");
+
+CheckLoginDetails(usernameLogin.value,emailLogin.value);
+}
+
+function CheckLoginDetails(username,email){
+    if( ( username == localStorage.getItem("username") ) && ( email == localStorage.getItem("email") ) ); { 
+        
+    const response = document.createElement("h5");
+
+    response.innerText = "Login Successful";
+
+    response.appendChild("feedback-container"); }
+  
+    else {
+
+        const response = document.createElement("h5");
+    
+        response.innerText = "Login Unsuccessful";
+    
+        response.appendChild("feedback-container");  
+    }
+        
+
+
+}
