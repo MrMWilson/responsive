@@ -27,23 +27,32 @@ CheckLoginDetails(usernameLogin.value,emailLogin.value);
 }
 
 function CheckLoginDetails(username,email){
-    if( ( username == localStorage.getItem("username") ) && ( email == localStorage.getItem("email") ) ); { 
+    if ( ( username == localStorage.getItem("username") ) && ( email == localStorage.getItem("email") ) ){ 
+    
+        LoginSuccess();
+
+     } else {
+
+       LoginFailure(); 
+    }
         
-    const response = document.createElement("h5");
+}
+
+
+function LoginSuccess(){
+
+const response = document.createElement("h5");
 
     response.innerText = "Login Successful";
 
-    response.appendChild("feedback-container"); }
-  
-    else {
+    response.appendChild("feedback-container");
+}
 
-        const response = document.createElement("h5");
+function LoginFailure(){
+
+    const response = document.createElement("h5");
     
-        response.innerText = "Login Unsuccessful";
-    
-        response.appendChild("feedback-container");  
-    }
-        
+    response.innerText = "Login Unsuccessful";
 
-
+    response.appendChild("feedback-container"); 
 }
