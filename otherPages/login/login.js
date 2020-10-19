@@ -16,6 +16,7 @@ function SetInLocalStorage(username,email){
 }
 
 function HandleLogin(){
+    debugger;
   UpdateLoginInfo();  
 }
 
@@ -23,7 +24,7 @@ function UpdateLoginInfo(){
 var usernameLogin = document.getElementById("login-username");
 var emailLogin = document.getElementById("login-email");
 
-CheckLoginDetails(usernameLogin.textContent,emailLogin.textContent);
+CheckLoginDetails(usernameLogin.value,emailLogin.value);
 }
 
 function CheckLoginDetails(username,email){
