@@ -16,8 +16,14 @@ function SetInLocalStorage(username,email){
 }
 
 function HandleLogin(){
-    debugger;
-  UpdateLoginInfo();  
+
+    if (localStorage.getItem("username") || localStorage.getItem("email") !== null){
+
+        UpdateLoginInfo();
+
+    } else{
+
+        NoValue(); }
 }
 
 function UpdateLoginInfo(){
@@ -52,4 +58,11 @@ function LoginFailure(){
     var textFail = document.getElementById("response-text");
 
 textFail.textContent = "Login Error";
+}
+
+function NoValue(){
+    var textEmpty = document.getElementById("response-text");
+
+    textEmpty.textContent = "Please register a username and login first";
+
 }
