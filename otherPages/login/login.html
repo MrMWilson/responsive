@@ -65,14 +65,14 @@
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">Username</span>
     </div>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <input type="text" class="form-control" id= "login-username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
   </div>
 
   <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="basic-addon1">e-mail</span>
     </div>
-    <input type="text" class="form-control" placeholder="example@login.com" aria-label="Username" aria-describedby="basic-addon1">
+    <input type="text" class="form-control" id= "login-email" placeholder="example@login.com" aria-label="Username" aria-describedby="basic-addon1">
   </div>
 </div>
 <button type="button" class="btn btn-outline-success" onclick="HandleLogin()">Login</button>
@@ -80,10 +80,8 @@
 </div>
 </div>
 
-<div class="container" id= "feedback-container">   
-
-
-
+<div class="container" id= "feedback-container">
+  <h5 id= "response-text"></h5>
 </div>
 
 

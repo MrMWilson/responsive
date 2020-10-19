@@ -16,17 +16,18 @@ function SetInLocalStorage(username,email){
 }
 
 function HandleLogin(){
-  UpdateLogignInfo();  
+  UpdateLoginInfo();  
 }
 
 function UpdateLoginInfo(){
-const usernameLogin = document.getElementById("login-username");
-const emailLogin = document.getElementById("login-email");
+var usernameLogin = document.getElementById("login-username");
+var emailLogin = document.getElementById("login-email");
 
-CheckLoginDetails(usernameLogin.value,emailLogin.value);
+CheckLoginDetails(usernameLogin.textContent,emailLogin.textContent);
 }
 
 function CheckLoginDetails(username,email){
+    
     if ( ( username == localStorage.getItem("username") ) && ( email == localStorage.getItem("email") ) ){ 
     
         LoginSuccess();
@@ -41,18 +42,13 @@ function CheckLoginDetails(username,email){
 
 function LoginSuccess(){
 
-const response = document.createElement("h5");
+document.getElementById("response-text").textContent = "Login Successful";
 
-    response.innerText = "Login Successful";
-
-    response.appendChild("feedback-container");
 }
 
 function LoginFailure(){
 
-    const response = document.createElement("h5");
-    
-    response.innerText = "Login Unsuccessful";
+    var textFail = document.getElementById("response-text");
 
-    response.appendChild("feedback-container"); 
+textFail.textContent = "Login Error";
 }
